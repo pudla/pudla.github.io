@@ -705,7 +705,7 @@ $(function () {
 
                         // Message was sent
                         if (obj.data) {
-                            console.log(obj.data)
+                            //console.log(obj.data)
                             $("#contactPerson")[0].value = obj.data.Username;
                             if (obj.data.State == 'A') {
                                 $('#uschA').click();
