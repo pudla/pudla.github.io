@@ -414,6 +414,7 @@
 
                     type: "POST",
                     url: route.user.login,
+                    crossDomain: true,
                     data: $(form).serialize(),
                     beforeSend: function () {
 
