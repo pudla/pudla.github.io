@@ -1,0 +1,20 @@
+msg = {
+    passok: `Tu nueva contraseña ha sido actualizada.`,
+    faildata: `Al menos uno de los campos no está bien diligenciado, revisa por favor.`,
+    usernologin: `Detectamos que no has iniciado sesión`,
+    passforbidden: `Tu nueva contraseña no ha sido actualizada, tu contraseña actual no es válida.`,
+    updforbidden: `Tus datos no han sido actualizados, tu contraseña no es válida.`,
+    updok: `Tus datos han sido actualizados exitosamente.`,
+    voteok: `Tu resultado ha sido almacenado correctamente. !Éxitos!`,
+    passwrong: `Tu contraseña antigua no coincide con la escrita, revisa nuevamente por favor.`,
+    passdif: `Los campos de las contraseñas nuevas no coinciden, corrigelas por favor.`,
+    urt: `A continuación se visualiza el Ranking (Top 10) de usuarios con la mayor puntuación.`,
+    ucc:`Ups, no hemos encontrado usuarios para visualizar.`,
+    ccc: `Ups, no hemos encontrado partidos para visualizar`,
+    null: `Debes indicar un resultado antes de guardarlo.`,
+    internet: `Algo ha salido mal. Si hay problemas con la conectividad. Intenta recargar la página.`,
+    forbidden: `El resultado del partido no puede ser almacenado, porque ya se encuentra en curso o ha finalizado. Intenta recargar la página.`,
+    blocked: `<center><p class="lead">Lo sentimos, no puedes visualizar este contenido. Activa ya tu cuenta.<br></br><span style="color: #673AB7;font-weight: 500;">¿Qué esperas?</span></p></center>`,
+    nomatchs: `<center><p class="lead">En éste momento no hay partidos disponibles (menos de 12 horas).<br>Revisa en la sección de resultados y regresa pronto.<br></br><a target="_blank" href="https://es.fifa.com/worldcup/matches/"><span style="color: #673AB7;font-weight: 500;">Clic para ver más</span></a></p></center>`,
+    userupdated: `El estado del usuario ha sido actualizado satisfactoriamente.`
+}

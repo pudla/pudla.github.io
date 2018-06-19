@@ -1,0 +1,411 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Pudla - Polla Mundialista Pudla</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Kavoon" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Spa Mundial Pudla">
+    <meta name="keywords" content="HTML5, udla, app, mundial, 2018">
+
+    <!-- Font -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Themify Icons -->
+    <link rel="stylesheet" href="css/themify-icons.css">
+    <!-- Owl carousel -->
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <!-- Main css -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- favicons
+    ================================================== -->
+    <link rel="shortcut icon" href="../Tuqui.ico" type="image/x-icon">
+    <link rel="icon" href="../Tuqui.ico" type="image/x-icon">
+</head>
+
+<body data-spy="scroll" data-target="#navbar" data-offset="30">
+
+    <!-- Nav Menu -->
+
+    <div class="nav-menu fixed-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav class="navbar navbar-dark navbar-expand-lg">
+                        <a class="navbar-brand" href="index.html">
+                            <img src="images/logo-1.png" class="img-fluid" alt="logo" oncontextmenu="return false" onkeydown="return false" draggable="false">
+                        </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbar">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#home">Inicio
+                                        <span class="sr-only">(current)</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#gallery">Próximos Partidos</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#banner">Oficiales</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#AllResults">Tus Resultados</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#Admin">Ajustes</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#AllRanking">Ranking</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#Questions">Preguntas</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" id="CloseSession" class="btn btn-outline-light my-3 my-sm-0 ml-lg-3">Cerrar Sesión</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <header class="bg-gradient" id="home">
+        <div class="container mt-5">
+            <h1>
+                <span style="font-family: Baloo Kavoon, regular; ">Polla </span>Mundialista Pudla</h1>
+            <p class="tagline" id="UserName"></p>
+        </div>
+        <div class="img-holder mt-3">
+            <img src="images/Rusia.png" alt="WorldCup" class="img-fluid" style="visibility:hidden;" oncontextmenu="return false" onkeydown="return false"
+                draggable="false">
+        </div>
+    </header>
+
+    <div class="client-logos my-5">
+        <div class="container text-center">
+            <h3 class="mt-4 mb-2">Tu cuenta está</h3>
+            <p class="text-primary">
+                <span id="UserAccountState"> </span>
+            </p>
+        </div>
+    </div>
+
+
+    <!-- Init Upcoming Matchs -->
+
+
+    <div class="section light-bg" id="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h3 id="Next"></h3>
+                <small>
+                    <span id="InfoNext" style="display: none">Indica el resultado del partido</span>
+                </small>
+            </div>
+            <div class="img-gallery owl-carousel owl-theme" id="Matches">
+
+            </div>
+            <div class="lead" id="MatchesError">
+
+            </div>
+        </div>
+    </div>
+    <!-- // end .section -->
+
+    <div id="Success" class="col-12 col-lg-4" style="display: none">
+        <div class="card features">
+            <div class="card-body">
+                <div class="media">
+                    <img src="images/Success.png" style="position: absolute; margin: auto;top: -220px;left: 0;right: 0;bottom: 0;z-index: 0;"
+                        oncontextmenu="return false" onkeydown="return false" draggable="false">
+                    <div class="media-body">
+                        <h4 class="card-title" style="color:#4CAF50;">Correcto.</h4>
+                        <p class="card-text" id="MessageSuccess"></p>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="Mistake" class="col-12 col-lg-4" style="display: none">
+        <div class="card features">
+            <div class="card-body">
+                <div class="media">
+                    <img src="images/Mistake.png" style="position: absolute; margin: auto;top: -220px;left: 0;right: 0;bottom: 0;z-index: 0;"
+                        oncontextmenu="return false" onkeydown="return false" draggable="false">
+                    <div class="media-body">
+                        <h4 class="card-title" style="color:#c43735;">Ups.</h4>
+                        <p class="card-text" id="MessageMistake"></p>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Invite -->
+    <section id="banner">
+        <header>
+            <h2>Resultados Oficiales</h2>
+        </header>
+        <p>Visita el sitio web de la
+            <a target="_blank" href="https://es.fifa.com/worldcup/matches/">FIFA</a> para conocer los resultados de cada partido.
+            <br> También te inviamos a estar informado con Google para ver detalles de cada partido.
+            <br>
+            <i>#FuerzaTricolor.</i>
+        </p>
+        <footer>
+            <a target="_blank" href="https://www.google.com.co/search?q=mundial&rlz=1C1CHBF_esCO788CO788&oq=mundial&aqs=chrome..69i57j69i60l3j69i59l2.1155j0j1&sourceid=chrome&ie=UTF-8#sie=lg;/m/06qjc4;2;/m/030q7;mt;fp;1"
+                class="button style2 scrolly">Ver Más detalles</a>
+        </footer>
+    </section>
+
+
+    <div class="section-top-border" id="AllResults">
+        <center>
+            <h3 class="mb-30" id="ResultsTitle"></h3>
+        </center>
+        <div class="section-title">
+            <small>
+                <span>A continuación se visualizan los partidos disponibles por cada fase, consulta</span>
+            </small>
+            <a href="#MyPoints">
+                <span style="color: #481bb3;font-weight: 500;"> Tus puntos</i>
+                </span>
+            </a>
+        </div>
+        <div class="progress-table-wrap">
+            <div class="progress-table" id="Results">
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="section light-bg" id="Admin">
+        <div class="container">
+            <div class="section-title">
+                <small>Configuración</small>
+                <h3>Ajustes</h3>
+            </div>
+
+            <ul class="nav nav-tabs nav-justified" role="tablist" id="SecPro">
+                        
+                    
+            </ul>
+
+            <div class="tab-content" id="UsAc">
+                               
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <div class="section-top-border" id="AllRanking">
+        <center>
+            <h3 class="mb-30" id="RankingTitle"></h3>
+        </center>
+        <div class="section-title">
+            <small>
+                <span id="RankingUnder"></span>
+            </small>
+        </div>
+        <div class="progress-table-wrap">
+            <div class="progress-table" id="Ranking">
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="section light-bg" style="background: #553180 !important;">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="images/Rusia.png" alt="iphone" class="img-fluid">
+                </div>
+                <div class="col-md-8 d-flex align-items-center">
+                    <ul class="list-unstyled ui-steps">
+                        <li class="media">
+                            <div class="circle-icon mr-4">1</div>
+                            <div class="media-body">
+                                <h5>Campeón de la Copa Mundial</h5>
+                                <p>Nombre del Equipo: </p>
+                            </div>
+                        </li>
+                        <li class="media my-4">
+                            <div class="circle-icon mr-4">2</div>
+                            <div class="media-body">
+                                <h5>Segundo Lugar</h5>
+                                <p>Nombre del Equipo: </p>
+                            </div>
+                        </li>
+                        <li class="media">
+                            <div class="circle-icon mr-4">3</div>
+                            <div class="media-body">
+                                <h5>Tercer Lugar</h5>
+                                <p>Nombre del Equipo: </p>
+                            </div>
+                        </li>
+                        <li class="media my-4">
+                            <div class="circle-icon mr-4">4</div>
+                            <div class="media-body">
+                                <h5>Cuarto Lugar</h5>
+                                <p>Nombre del Equipo: </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+    <!-- // end .section -->
+
+
+
+
+
+    <div class="section light-bg" id="Questions">
+        <div class="container">
+            <div class="section-title">
+                <small>FAQ</small>
+                <h3>Preguntas Frecuentes </h3>
+            </div>
+
+            <div class="row pt-4">
+                <div class="col-md-6">
+                    <h4 class="mb-3">¿Cuando puedo votar por cada partido?</h4>
+                    <p class="light-font mb-5">Las votaciones de todos los partidos aparecerán disponibles diariamente si éste aún no se ha jugado.
+                        Podrás votar hasta
+                        <i>05:00 minutos</i> antes de su inicio.</p>
+                    <h4 class="mb-3">¿Cómo activo mi cuenta para participar?</h4>
+                    <p class="light-font mb-5">Una vez que hayas formalizado tu pago con el administrador encargado, se hará la validación para activar
+                        tu cuenta automáticamente. Para ello deberás iniciar sesión nuevamente cuando te notifiquen.
+                        <br>- Pagos autorizados: Transferencia Bancaria o PSE. Cuenta de Ahorros, Bancolombia No: 46683125920
+                        <br>- Celular de Contacto: 300 348 31 27 </p>
+
+                </div>
+                <div class="col-md-6">
+                    <h4 class="mb-3">¿Quién se gana la Polla Pudla?</h4>
+                    <p class="light-font mb-5">Los premios se encuentran establecidos así: 50% del total para la persona con la mayor cantidad de puntos
+                        acumulados por acertar en los partidos del mundial Rusia 2018. El 35% del total para el segundo lugar.
+                        El 15% se destina a gastos de administración. Revisa la tabla de Ranking de usuarios, allí veras
+                        los dos primeros puestos.</p>
+                    <h4 class="mb-3">¿Cómo realizo mi votación por cada partido?</h4>
+                    <p class="light-font mb-5">En la sección
+                        <i>Próximos Partidos</i> podrás ver los partdos disponibles para asignar tu resultado. Una vez que registres
+                        tu voto, podrás actualizarlo las veces que gustes, salvo que podrás hacerlo faltando 5 minutos antes
+                        del inicio del partido. </p>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- // end .section -->
+
+
+
+
+    <div class="light-bg py-5" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 text-center text-lg-left">
+                    <p class="mb-2">
+                        <span class="ti-location-pin mr-2"></span> Campus Porvenir Calle 17 Diagonal 17 con Carrera 3F</p>
+                    <div class=" d-block d-sm-inline-block">
+                        <p class="mb-2">
+                            <span class="ti-email mr-2"></span>
+                            <a class="mr-4" href="mailto:edistancia@uniamazonia.edu.co">edistancia@uniamazonia.edu.co</a>
+                        </p>
+                    </div>
+                    <div class="d-block d-sm-inline-block">
+                        <p class="mb-0">
+                            <span class="ti-headphone-alt mr-2"></span>
+                            <a href="tel:3214687286">(+57) 3214687286</a>
+                        </p>
+                    </div>
+
+                </div>
+                <div class="col-lg-6">
+                    <div class="social-icons">
+                        <a target="_blank" href="https://www.facebook.com/udlaedistancia">
+                            <span class="ti-facebook"></span>
+                        </a>
+                        <a target="_blank" href="https://twitter.com/udlaead">
+                            <span class="ti-twitter-alt"></span>
+                        </a>
+                        <a target="_blank" href="https://www.instagram.com/udlaedistancia/">
+                            <span class="ti-instagram"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- // end .section -->
+    <footer class="my-5 text-center">
+        <p class="mb-2">
+            <small>© Copyright @Edistancia 2018 | Sitio adaptado por
+                <a href="https://virtual.udla.edu.co:444/distancia">Departamento de Educación a Educación a Distancia</a>
+            </small>
+        </p>
+        <p class="mb-2">
+            <small>Agradecimientos al Departamento de Mercadeo, Udla.</small>
+        </p>
+
+    </footer>
+
+    <!-- jQuery and Bootstrap -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="../js/routes.js"></script>
+    <script src="../js/msg.js"></script>
+    <script src="vendor/moment-with-locales.min.js"></script>
+    <script src="vendor/moment-timezone-with-data.min.js"></script>
+    <script src="js/script.js"></script>
+    <!-- Vendors -->
+    <script src="vendor/jquery.bpopup.js"></script>
+    <script src="vendor/bower.json"></script>
+    <script src="../js/plugins.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121068001-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-121068001-1');
+    </script>
+
+</body>
+
+</html>

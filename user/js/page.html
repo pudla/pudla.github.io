@@ -1,0 +1,162 @@
+<div class="tab-content" id="UsAc"><div class="tab-pane fade active show">
+            <form name="ChangePass" id="ChangePass" method="post" action="" novalidate="novalidate" autocomplete="off">
+
+
+                <fieldset>
+                    <ul class="list-group list-group-flush" id="pass">
+                        <h4 class="mb-3">Cambia tu contraseña</h4>
+                        <p class="light-font mb-5">Todos los campos son requeridos. El sistema es sensible a las mayúsculas.</p>
+
+                        <center>
+                            <input name="username" type="hidden" id="contactUsernames" placeholder="Nombre de usuario" value="h.perea" minlength="6" required="" aria-required="false" class="full-width" autocomplete="off">
+                        </center>
+                        <br>
+                        <center>
+                            <input name="passwordo" type="password" id="contactPasswordo" placeholder="Contraseña Anterior" value="" minlength="6" required="" aria-required="true" class="full-width" autocomplete="new-password">
+                        </center>
+                        <br>
+                        <center>
+                            <input name="password" type="password" id="contactPassword" placeholder="Nueva Contraseña" value="" minlength="6" required="" aria-required="true" class="full-width" autocomplete="off">
+                        </center>
+                        <br>
+                        <center>
+                            <input name="passwordn" type="password" id="contactPasswordc" placeholder="Confirmar Contraseña" value="" minlength="6" required="" aria-required="true" class="full-width" autocomplete="off">
+                        </center>
+                        <p></p>
+
+
+                    </ul>
+                </fieldset>
+                <div class="card-body">
+                    <button class="btn btn-primary btn-lg btn-block" id="PassChange">Cambiar</button>
+                </div>
+
+            </form>
+
+        </div>
+
+
+        <div class="tab-pane fade" id="profile">
+            <form name="UpdUserData" id="UpdUserData" method="post" action="" novalidate="novalidate" autocomplete="off">
+                <fieldset>
+                    <ul class="list-group list-group-flush">
+                        <h4 class="mb-3">Actualiza tus datos personales</h4>
+                        <p class="light-font mb-5">Todos los campos son requeridos. Ingresa datos válidos, dado que en caso de que ganes, deberás
+                            comprobar tu indentidad.</p>
+
+                        <center>
+                            <input name="document" type="text" id="contactDocument" placeholder="Documento de Identidad" value="" minlength="7" required="" aria-required="true" class="full-width" autocomplete="off">
+                        </center>
+                        <br>
+                        <center>
+                            <input name="username" type="hidden" id="contactUsername" placeholder="Nombre de usuario" value="h.perea" minlength="6" required="" aria-required="false" class="full-width" autocomplete="off">
+                        </center>
+                        <br>
+                        <center>
+                            <input name="firstname" type="text" id="contactFirstname" placeholder="Nombres" value="" minlength="3" required="" aria-required="true" class="full-width" autocomplete="off">
+                        </center>
+                        <br>
+                        <center>
+                            <input name="lastname" type="text" id="contactLastname" placeholder="Apellidos" value="" minlength="3" required="" aria-required="true" class="full-width" autocomplete="off">
+                        </center>
+                        <br>
+                        <center>
+                            <input name="email" type="text" id="contactEmail" placeholder="Correo Electrónico" value="" minlength="3" required="" aria-required="true" class="full-width" autocomplete="off">
+                        </center>
+                        <br>
+                        <center>
+                            <input name="phone" type="text" id="contactPhone" placeholder="Teléfono" value="" minlength="5" required="" aria-required="true" class="full-width" autocomplete="off">
+                        </center>
+                        <br>
+                        <center>
+                            <h4 class="mb-3">Para almacenar tus datos, necesitamos validar que eres tú.</h4>
+                            <input name="password" type="password" id="contactPasswordr" placeholder="Contraseña" value="" minlength="6" required="" aria-required="true" class="full-width" autocomplete="new-password">
+                        </center>
+                        <p></p>
+
+
+                    </ul>
+                </fieldset>
+                <div class="card-body">
+                    <button class="btn btn-primary btn-lg btn-block">Actualizar</button>
+                </div>
+
+            </form>
+        </div><div class="tab-pane fade" id="users">
+                <form name="SearchsUsers" id="SearchsUsers" method="post" action="" novalidate="novalidate" autocomplete="off">
+
+
+                    <fieldset>
+                        <ul class="list-group list-group-flush">
+                            <h4 class="mb-3">Activa o desactiva la cuenta de un Usuarios</h4>
+                            <p class="light-font">Por favor ingrese algún criterio de busqueda como: usuario, nombre, teléfono o correo electrónico.
+                                Después pulse en buscar. Active</p>
+
+                            <br>
+                            <input name="argument" type="text" id="contactSearch" placeholder="Criterio de Busqueda" value="" minlength="3" required="" aria-required="true" class="full-width" autocomplete="off">
+                            <br>
+                            <div class="card-body">
+                                <button class="btn btn-primary btn-lg btn-block" id="SearcherUs"> Buscar</button>
+                            </div>
+                            <br>
+                            <br>
+
+                </ul></fieldset>   
+                </form> 
+
+                <form name="Updater" id="Updater" method="post" action="" novalidate="novalidate" autocomplete="off">
+                    <fieldset>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <h4 class="mb-3">Desactivado</h4>
+                                        </th>
+                                        <th>
+                                            <h4 class="mb-3">Activado</h4>
+                                        </th>
+                                        <th>
+                                            <h4 class="mb-3">
+                                                <center>Usuario Consultado</center>
+                                            </h4>
+                                        </th>
+                                        <th>
+                                            <h4 class="mb-3">
+                                                <center>Actualizar</center>
+                                            </h4>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <input type="radio" id="uschD" name="state">
+                                            <label for="uschD" style="padding-left: 2.0rem;">&nbsp;</label>
+                                        </td>
+                                        <td>
+                                            <input type="radio" id="uschA" name="state">
+                                            <label for="uschA" style="padding-left: 2.0rem;">&nbsp;</label>
+                                        </td>
+                                        
+                                        <td>
+                                            <input name="username" type="text" id="contactPerson" placeholder="" required="" aria-required="true" class="full-width" disabled="">
+                                            <center>
+                                                <input name="autorized" type="hidden" id="contactUpdUsername" placeholder="Nombre de usuario" value="" minlength="6" required="" aria-required="false" class="full-width" autocomplete="off">
+                                                </center>
+                                        </td>
+                                        <td>
+                                            <div class="card-body">
+                                                <button class="btn btn-primary btn-lg btn-block" id="Setter">Aplicar</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p></p>
+
+                        
+                    </fieldset>
+
+
+                </form>
+            </div></div>
