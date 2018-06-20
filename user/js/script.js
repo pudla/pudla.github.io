@@ -706,7 +706,7 @@ $(function () {
 
                         // Message was sent
                         if (obj.data) {
-                            //console.log(obj.data)
+                            console.log(obj.data)
                             $("#contactPerson")[0].value = obj.data.Username;
                             if (obj.data.State == 'A') {
                                 $('#uschA').click();
@@ -792,6 +792,7 @@ $(function () {
                 MatchVote[ir].teamid = Checkeaded(MatchVote[ir].matchid);
                 //if (MatchVote[ir].teamid != null) {
                 // }
+                console.log(MatchVote[ir])
                 break;
             }
         }
@@ -806,6 +807,7 @@ $(function () {
                     if (MatchVote[selected].id == -1) {
                         MatchVote[selected].id = obj.data[0].data;
                     }
+                    console.log(MatchVote[selected].id)
                     //Reload
                     Results();
                     Ranking();
