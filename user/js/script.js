@@ -796,40 +796,44 @@ $(function () {
                 ir = all;
             }
         }
-        $.ajax({
-            type: "POST",
-            url: route.votation.create,
-            data: MatchVote[selected],
-            dataType: 'json',
-            success: function (obj) {
-                console.log(selected)
-                if (obj.data && obj.data[0].data != 0) {
-                    if (MatchVote[selected].id == -1) {
-                        MatchVote[selected].id = obj.data[0].data;
+        if(MatchVote[selected].teamid > 0){
+            $.ajax({
+                type: "POST",
+                url: route.votation.create,
+                data: MatchVote[selected],
+                dataType: 'json',
+                success: function (obj) {
+                    console.log(selected)
+                    if (obj.data && obj.data[0].data != 0) {
+                        if (MatchVote[selected].id == -1) {
+                            MatchVote[selected].id = obj.data[0].data;
+                        }
+                        console.log(MatchVote[selected].id)
+                        //Reload
+                        Results();
+                        Ranking();
+                        document.getElementById("MessageSuccess").innerHTML = msg.voteok;
+                        MinimizeMenssages("#Success");
+
+                    } else {
+                        document.getElementById("MessageMistake").innerHTML = msg.forbidden;
+                        MinimizeMenssages("#Mistake");
                     }
-                    console.log(MatchVote[selected].id)
-                    //Reload
-                    Results();
-                    Ranking();
-                    document.getElementById("MessageSuccess").innerHTML = msg.voteok;
-                    MinimizeMenssages("#Success");
 
-                } else {
-                    document.getElementById("MessageMistake").innerHTML = msg.forbidden;
+                },
+                error: function (e) {
+                    document.getElementById("MessageMistake").innerHTML = msg.internet;
                     MinimizeMenssages("#Mistake");
+                },
+                // código a ejecutar sin importar si la petición falló o no
+                complete: function (xhr, status) {
+
                 }
-
-            },
-            error: function (e) {
-                document.getElementById("MessageMistake").innerHTML = msg.internet;
-                MinimizeMenssages("#Mistake");
-            },
-            // código a ejecutar sin importar si la petición falló o no
-            complete: function (xhr, status) {
-
-            }
-        });
-
+            });
+        }else {
+            document.getElementById("MessageMistake").innerHTML = 'Marque una opción para guardar';
+            MinimizeMenssages("#Mistake");
+        }
 
 
     }
