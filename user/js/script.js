@@ -784,49 +784,51 @@ $(function () {
 
     function Upd() {
         var newVote = 0;
+        var selected = -1;
         for (var ir = 0; ir < all / 2; ir++) {
             if (arguments[0] == MatchVote[ir].matchid) {
+                selected = ir;
                 MatchVote[ir].id = (!MatchVote[ir].id) ? -1 : MatchVote[ir].id;
                 MatchVote[ir].teamid = Checkeaded(MatchVote[ir].matchid);
-                if (MatchVote[ir].teamid != null) {
-                    $.ajax({
-                        type: "POST",
-                        url: route.votation.create,
-                        data: MatchVote[ir],
-                        dataType: 'json',
-                        success: function (obj) {
-
-                            if (obj.data && obj.data[0].data != 0) {
-                                if (MatchVote[ir - 1].id == -1) {
-                                    MatchVote[ir - 1].id = obj.data[0].data;
-                                }
-                                //Reload
-                                Results();
-                                Ranking();
-                                document.getElementById("MessageSuccess").innerHTML = msg.voteok;
-                                MinimizeMenssages("#Success");
-
-                            } else {
-                                document.getElementById("MessageMistake").innerHTML = msg.forbidden;
-                                MinimizeMenssages("#Mistake");
-                            }
-
-                        },
-                        error: function (e) {
-                            document.getElementById("MessageMistake").innerHTML = msg.internet;
-                            MinimizeMenssages("#Mistake");
-                        },
-                        // código a ejecutar sin importar si la petición falló o no
-                        complete: function (xhr, status) {
-
-                        }
-                    });
-                } else {
-                    document.getElementById("MessageMistake").innerHTML = msg.null;
-                    MinimizeMenssages("#Mistake");
-                }
+                //if (MatchVote[ir].teamid != null) {
+                // }
+                break;
             }
         }
+        $.ajax({
+            type: "POST",
+            url: route.votation.create,
+            data: MatchVote[selected],
+            dataType: 'json',
+            success: function (obj) {
+                console.log(selected)
+                if (obj.data && obj.data[0].data != 0) {
+                    if (MatchVote[selected].id == -1) {
+                        MatchVote[selected].id = obj.data[0].data;
+                    }
+                    //Reload
+                    Results();
+                    Ranking();
+                    document.getElementById("MessageSuccess").innerHTML = msg.voteok;
+                    MinimizeMenssages("#Success");
+
+                } else {
+                    document.getElementById("MessageMistake").innerHTML = msg.forbidden;
+                    MinimizeMenssages("#Mistake");
+                }
+
+            },
+            error: function (e) {
+                document.getElementById("MessageMistake").innerHTML = msg.internet;
+                MinimizeMenssages("#Mistake");
+            },
+            // código a ejecutar sin importar si la petición falló o no
+            complete: function (xhr, status) {
+
+            }
+        });
+
+
 
     }
 
