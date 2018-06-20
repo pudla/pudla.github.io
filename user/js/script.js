@@ -246,6 +246,7 @@ $(function () {
                 text = msg.nomatchs;
             }
             document.getElementById("MatchesError").innerHTML = text;
+            document.getElementById("Next").innerHTML = `Próximos Partidos`;
         }
     }
 
