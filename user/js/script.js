@@ -796,7 +796,7 @@ $(function () {
                 ir = all;
             }
         }
-        if(!MatchVote[selected].teamid){
+        if(MatchVote[selected].teamid >= 0){
             $.ajax({
                 type: "POST",
                 url: route.votation.create,
