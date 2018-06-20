@@ -793,7 +793,7 @@ $(function () {
                 //if (MatchVote[ir].teamid != null) {
                 // }
                 console.log(MatchVote[ir])
-                break;
+                ir = all;
             }
         }
         $.ajax({
