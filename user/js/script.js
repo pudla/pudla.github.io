@@ -593,6 +593,7 @@ $(function () {
             secp += `<li class="nav-item" id="Lenght${sesion_pudla.lenght}">
                     <a class="nav-link" data-toggle="tab" href="#users">Gestionar Usuarios</a>
                 </li>`;
+        if (!movil){
             tabu += `<div class="tab-pane fade" id="users">
                 <form name="SearchsUsers" id="SearchsUsers" method="post" action="" novalidate="novalidate" autocomplete="off">
 
@@ -618,7 +619,7 @@ $(function () {
 
                 <form name="Updater" id="Updater" method="post" action="" novalidate="novalidate" autocomplete="off">
                     <fieldset>
-                            <table>
+                    <table>
                                 <thead>
                                     <tr>
                                         <th>
@@ -628,14 +629,84 @@ $(function () {
                                             <h4 class="mb-3">Activado</h4>
                                         </th>
                                         <th>
-                                            <h4 class="mb-3">
-                                                <center>Usuario Consultado</center>
-                                            </h4>
+                                        <h4 class="mb-3">
+                                            <center>Usuario Consultado</center>
+                                        </h4>
+                                    </th>
+                                    <th>
+                                        <h4 class="mb-3">
+                                            <center>Actualizar</center>
+                                        </h4>
+                                    </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <input type="radio" id="uschD" name="state">
+                                            <label for="uschD" style="padding-left: 2.0rem;">&nbsp;</label>
+                                        </td>
+                                        <td>
+                                            <input type="radio" id="uschA" name="state">
+                                            <label for="uschA" style="padding-left: 2.0rem;">&nbsp;</label>
+                                        </td>
+    
+                            <td>
+                                <input name="username" type="text" id="contactPerson" placeholder="" required="" aria-required="true" class="full-width"
+                                    disabled="">
+                                <center>
+                                    <input name="autorized" type="hidden" id="contactUpdUsername"  value="" minlength="6" required=""
+                    aria-required="false" class="full-width" >
+                                    </center>
+                            </td>
+                            </fieldset>
+                            <td>
+                                <div class="card-body">
+                                    <button class="btn btn-primary btn-lg btn-block" id="Setter">Aplicar</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                               <p></p>
+                        </ul>
+                     </form>
+            </div>`;
+            }else{
+                tabu += `<div class="tab-pane fade" id="users">
+                <form name="SearchsUsers" id="SearchsUsers" method="post" action="" novalidate="novalidate" autocomplete="off">
+
+
+                    <fieldset>
+                        <ul class="list-group list-group-flush">
+                            <h4 class="mb-3">Activa o desactiva la cuenta de un Usuarios</h4>
+                            <p class="light-font">Por favor ingrese algún criterio de busqueda como: usuario, nombre, teléfono o correo electrónico.
+                                Después pulse en buscar. Active</p>
+
+                            <br>
+                            <input name="argument" type="text" id="contactSearch" placeholder="Criterio de Busqueda" value="" minlength="3" required="" aria-required="true"
+                                class="full-width" autocomplete="off">
+                            <br>
+                            
+                            </fieldset>   
+                            <div class="card-body">
+                                <button class="btn btn-primary btn-lg btn-block" id="SearcherUs"> Buscar</button>
+                            </div>
+                            <br>
+                            <br>
+                </form> 
+
+                <form name="Updater" id="Updater" method="post" action="" novalidate="novalidate" autocomplete="off">
+                    <fieldset>
+
+                    <table>
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <h4 class="mb-3">Desactivado</h4>
                                         </th>
                                         <th>
-                                            <h4 class="mb-3">
-                                                <center>Actualizar</center>
-                                            </h4>
+                                            <h4 class="mb-3">Activado</h4>
                                         </th>
                                     </tr>
                                 </thead>
@@ -650,29 +721,56 @@ $(function () {
                                             <label for="uschA" style="padding-left: 2.0rem;">&nbsp;</label>
                                         </td>
                                         </td>
-                                        <td>
-                                            <input name="username" type="text" id="contactPerson" placeholder="" required="" aria-required="true" class="full-width"
-                                                disabled="">
-                                            <center>
-                                                <input name="autorized" type="hidden" id="contactUpdUsername"  value="" minlength="6" required=""
-                                aria-required="false" class="full-width" >
-                                                </center>
-                                        </td>
-                                        </fieldset>
-                                        <td>
-                                            <div class="card-body">
-                                                <button class="btn btn-primary btn-lg btn-block" id="Setter">Aplicar</button>
-                                            </div>
-                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
+
+                    <table>
+                    <thead>
+                        <tr>
+                            <th>
+                                <h4 class="mb-3">
+                                    <center>Usuario Consultado</center>
+                                </h4>
+                            </th>
+                            <th>
+                                <h4 class="mb-3">
+                                    <center>Actualizar</center>
+                                </h4>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input name="username" type="text" id="contactPerson" placeholder="" required="" aria-required="true" class="full-width"
+                                    disabled="">
+                                <center>
+                                    <input name="autorized" type="hidden" id="contactUpdUsername"  value="" minlength="6" required=""
+                    aria-required="false" class="full-width" >
+                                    </center>
+                            </td>
+                            </fieldset>
+                            <td>
+                                <div class="card-body">
+                                    <button class="btn btn-primary btn-lg btn-block" id="Setter">Aplicar</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                            
+
+                            
+
                             <p></p>
 
                         </ul>
                 
                 </form>
             </div>`;
+            }
         }
         document.getElementById("SecPro").innerHTML = secp;
         document.getElementById("UsAc").innerHTML = tabu;
@@ -706,7 +804,7 @@ $(function () {
 
                         // Message was sent
                         if (obj.data) {
-                            console.log(obj.data)
+                            //console.log(obj.data)
                             $("#contactPerson")[0].value = obj.data.Username;
                             if (obj.data.State == 'A') {
                                 $('#uschA').click();
@@ -1040,6 +1138,7 @@ $(function () {
 
     /* Initialize
     * ------------------------------------------------------ */
+   movil = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(navigator.userAgent.toLowerCase());
     js = null;
     MatchVote = [];
     ChangePassForm();
