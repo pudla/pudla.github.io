@@ -792,7 +792,7 @@ $(function () {
                 MatchVote[ir].teamid = Checkeaded(MatchVote[ir].matchid);
                 //if (MatchVote[ir].teamid != null) {
                 // }
-                console.log(MatchVote[ir])
+                //console.log(MatchVote[ir])
                 ir = all;
             }
         }
@@ -803,12 +803,12 @@ $(function () {
                 data: MatchVote[selected],
                 dataType: 'json',
                 success: function (obj) {
-                    console.log(selected)
+                    //console.log(selected)
                     if (obj.data && obj.data[0].data != 0) {
                         if (MatchVote[selected].id == -1) {
                             MatchVote[selected].id = obj.data[0].data;
                         }
-                        console.log(MatchVote[selected].id)
+                        //console.log(MatchVote[selected].id)
                         //Reload
                         Results();
                         Ranking();
