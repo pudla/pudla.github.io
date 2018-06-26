@@ -455,7 +455,7 @@ $(function () {
                     if (obj.data) {
                         DrawMatches(obj.data);
                         Results();
-                        Ranking();
+                        
                     } else {
 
                     }
@@ -491,6 +491,7 @@ $(function () {
                 //console.log(obj.data)
                 if (obj.data) {
                     DrawResults(obj.data);
+                    Ranking();
                 } else {
 
                 }
