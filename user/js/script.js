@@ -10,8 +10,7 @@ Copyright © All rights Reserved
 */
 
 $(function () {
-
-
+    
     /* Init My Rules */
     function isLogin() {
         sesion_pudla = sStore.get();
@@ -1229,7 +1228,7 @@ $(function () {
     FindForm();
     Load();
 
-    var bjs;
+    
 
 
 }); /* End Fn */
