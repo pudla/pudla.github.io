@@ -427,6 +427,31 @@ h2{font-size:1.25em;letter-spacing:4px;}
     }
 
 
+    .w3-hide {
+        display: none !important
+    }
+
+    .progress-table .w3-show .table-row {
+        padding: 15px 0;
+        border: none;  
+        display: flex;
+    }
+
+    .w3-show {
+        background-color: #faf6fb;
+        visibility: visible !important;
+        border-top: 1px solid #5f2e97;
+    }
+
+
+    .table-row.w3-bt:hover {
+        background-color: #553180;
+        cursor: pointer;
+    }
+
+    .table-row.w3-bt:hover div {
+        color: white;
+    }
 
 
 /* GLOBAL

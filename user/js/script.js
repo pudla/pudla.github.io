@@ -11,6 +11,7 @@ Copyright © All rights Reserved
 
 $(function () {
 
+
     /* Init My Rules */
     function isLogin() {
         sesion_pudla = sStore.get();
@@ -343,31 +344,89 @@ $(function () {
                         <div class="visit">Aciertos</div>
                         <div class="visit">Puntos</div>
                     </div>`;
-        if (ralls > 1) {
 
+        if (ralls > 1) {
             var ri = 0;
+            paranking = 0;
+            Id = -1;
             for (var i = 0; i < ralls; i += 1) {
-                field = Object.keys(rjson[i]);
-                text += `<div class="table-row" ${(rjson[i].Nombre == sesion_pudla.Firstname + " " + sesion_pudla.Lastname) ? 'id="Points"' : ''}>
-                                <div class="serial">${(ri < 9) ? '0' + (ri + 1) : ri + 1}</div>
+                if (rjson[i].Id != Id) {
+                    field = Object.keys(rjson[i]);
+                    text += `<div class="table-row w3-bt Sel" ${(rjson[i].Nombre == sesion_pudla.Firstname + " " + sesion_pudla.Lastname) ? 'id="Points"' : ''}>
+                                <div class="serial">${(rjson[i].Id != Id) ? ((ri < 9) ? '0' + (paranking + 1) : paranking + 1) : ''} </div>
                                 <div class="country">${rjson[i].Nombre}</div>
                                 <div class="visit">${rjson[i].Participaciones}</div>
                                 <div class="visit"><i>${(parseInt(rjson[i].Aciertos) < 10) ? '0' + (parseInt(rjson[i].Aciertos)) : (parseInt(rjson[i].Aciertos))}</i></div>
                                 <div class="visit">${rjson[i].Points}</div>
-                            </div>
-                    `;
-                ri++;
+                        </div><div class="w3-hide">`;
+
+                    paranking++;
+
+                    Id = rjson[i].Id;
+                    ri++;
+                    //<div class="country">${rjson[m].Nombre}</div>
+                    //<div class="visit">${rjson[m].Participaciones}</div>
+                    for (var m = i; m < ralls; m += 1) {
+                        if (rjson[m].Id == Id) {
+                            RowResult = BuscarEquipo(rjson[m].Partido);
+                            text += `<div class="table-row">
+                                <div class="serial">  ${(rjson[m].Id != Id) ? ((ri < 9) ? '0' + (paranking + 1) : paranking + 1) : ''} </div>
+                                <div class="country"><img src="flags/${RowResult.TeamA}.png" id="flags" oncontextmenu="return false" onkeydown="return false" draggable="false">${RowResult.TeamA}</div>
+                                <div class="country"><img src="flags/${RowResult.TeamB}.png" id="flags" oncontextmenu="return false" onkeydown="return false" draggable="false">${RowResult.TeamB}</div>
+                                <div class="visit"><i>${(RowResult.Winner != 0)? 'Ganador:':'Resultado:'}</i></div>
+                                <div class="visit">${(RowResult.Winner != 0)? RowResult.WinTeam :'Empate'}</div>
+                                </div>`;
+                        } else {
+                            m = ralls;
+                        }
+                    }
+                    text += `</div>`;
+                }
             }
+
+            
 
             document.getElementById("RankingTitle").innerHTML += `Ranking de Usuarios`;
             document.getElementById("Ranking").innerHTML += text;
             document.getElementById("RankingUnder").innerHTML = msg.urt;
+           
+        
+            $('.w3-bt').click(Actions);
+
 
         } else {
 
             document.getElementById("RankingTitle").innerHTML += `Ranking de Usuarios`;
             document.getElementById("RankingUnder").innerHTML = msg.ucc;
         }
+    }
+
+    function BuscarEquipo(){
+        nameTeam = {};
+        nextTeam = -1;
+        hasWinner = -1;
+        bjs.map( (index, i) => {
+            
+            if (index.Id == arguments[0] && nextTeam == 0){
+                nameTeam = Object.assign(nameTeam, { TeamB : index.Team });
+                if(bjs[i-1].Winner == index.Team_Id && hasWinner == -1){
+                    console.log(index.Team)
+                    nameTeam = Object.assign(nameTeam, { WinTeam : index.Team });
+                }
+            }
+            if (index.Id == arguments[0] && nextTeam == -1){
+                nextTeam++;
+                
+                nameTeam = Object.assign(nameTeam, { TeamA : index.Team });
+                nameTeam = Object.assign(nameTeam, { Winner : index.Winner });                
+                if(index.Winner == index.Team_Id && hasWinner == -1){
+                    hasWinner++;
+                    console.log(index.Team)
+                    nameTeam = Object.assign(nameTeam, { WinTeam : index.Team });
+                }
+            }
+        })
+        return nameTeam;
     }
 
     function FillUser() {
@@ -593,8 +652,8 @@ $(function () {
             secp += `<li class="nav-item" id="Lenght${sesion_pudla.lenght}">
                     <a class="nav-link" data-toggle="tab" href="#users">Gestionar Usuarios</a>
                 </li>`;
-        if (!movil){
-            tabu += `<div class="tab-pane fade" id="users">
+            if (!movil) {
+                tabu += `<div class="tab-pane fade" id="users">
                 <form name="SearchsUsers" id="SearchsUsers" method="post" action="" novalidate="novalidate" autocomplete="off">
 
 
@@ -672,7 +731,7 @@ $(function () {
                         </ul>
                      </form>
             </div>`;
-            }else{
+            } else {
                 tabu += `<div class="tab-pane fade" id="users">
                 <form name="SearchsUsers" id="SearchsUsers" method="post" action="" novalidate="novalidate" autocomplete="off">
 
@@ -894,7 +953,7 @@ $(function () {
                 ir = all;
             }
         }
-        if(MatchVote[selected].teamid >= 0 && MatchVote[selected].teamid != null){
+        if (MatchVote[selected].teamid >= 0 && MatchVote[selected].teamid != null) {
             $.ajax({
                 type: "POST",
                 url: route.votation.create,
@@ -928,7 +987,7 @@ $(function () {
 
                 }
             });
-        }else {
+        } else {
             document.getElementById("MessageMistake").innerHTML = 'Marque una opción para guardar';
             MinimizeMenssages("#Mistake");
         }
@@ -1046,7 +1105,7 @@ $(function () {
 
     };
 
-    
+
     /* End of My Rules */
 
 
@@ -1134,11 +1193,34 @@ $(function () {
         }
     }
 
+    function Actions() {
+        
+        if ($(this).next().hasClass("w3-hide")) {
+            
+            $('.w3-bt')
+                .next()
+                .addClass("w3-hide")
+                .removeClass("w3-show");
 
+            $(this)
+                .next()
+                .addClass("w3-show")
+                .removeClass("w3-hide");
+
+        }
+        else {
+            $('.w3-bt')
+                .next()
+                .addClass("w3-hide")
+                .removeClass("w3-show");
+        }
+    }    
+
+    
 
     /* Initialize
     * ------------------------------------------------------ */
-   movil = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(navigator.userAgent.toLowerCase());
+    movil = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(navigator.userAgent.toLowerCase());
     js = null;
     MatchVote = [];
     ChangePassForm();
@@ -1146,5 +1228,8 @@ $(function () {
     UpdStateForm();
     FindForm();
     Load();
+
+
+
 
 }); /* End Fn */

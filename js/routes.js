@@ -1,6 +1,5 @@
-root = (location.href.indexOf('https://pudla.github.io') >= 0 )? 'https://virtual.udla.edu.co:444/Webapi/backend/web/index.php/' : 'http://localhost/';
+root = (location.href.indexOf('https://pudla.github.io') >= 0 )? 'https://virtual.udla.edu.co:444/Webapi/backend/web/index.php/' : 'http://localhost:8080/';
 
-root = 'https://virtual.udla.edu.co:444/Webapi/backend/web/index.php/',
 route = {
     user:{
         login: `${root}user/login`,
