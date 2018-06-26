@@ -1214,7 +1214,9 @@ $(function () {
         }
     }    
 
-    
+    $("input[type='radio']").on("keydown keypress", function(event){
+		event.preventDefault();
+    })
 
     /* Initialize
     * ------------------------------------------------------ */
