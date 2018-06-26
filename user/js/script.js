@@ -1214,22 +1214,22 @@ $(function () {
         }
     }    
 
-    $("input[type='radio']").on("keydown keypress", function(event){
-		event.preventDefault();
-    })
-
+    
     /* Initialize
     * ------------------------------------------------------ */
-    movil = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(navigator.userAgent.toLowerCase());
-    js = null;
-    MatchVote = [];
-    ChangePassForm();
-    UpdUserDataForm();
-    UpdStateForm();
-    FindForm();
-    Load();
-
-    
+   movil = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(navigator.userAgent.toLowerCase());
+   js = null;
+   MatchVote = [];
+   ChangePassForm();
+   UpdUserDataForm();
+   UpdStateForm();
+   FindForm();
+   Load();
+   
+   
+   $("input[type='radio']").on("keydown keypress", function(event){
+       event.preventDefault();
+   })
 
 
 }); /* End Fn */
