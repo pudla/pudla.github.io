@@ -409,7 +409,6 @@ $(function () {
             if (index.Id == arguments[0] && nextTeam == 0){
                 nameTeam = Object.assign(nameTeam, { TeamB : index.Team });
                 if(bjs[i-1].Winner == index.Team_Id && hasWinner == -1){
-                    console.log(index.Team)
                     nameTeam = Object.assign(nameTeam, { WinTeam : index.Team });
                 }
             }
@@ -420,7 +419,6 @@ $(function () {
                 nameTeam = Object.assign(nameTeam, { Winner : index.Winner });                
                 if(index.Winner == index.Team_Id && hasWinner == -1){
                     hasWinner++;
-                    console.log(index.Team)
                     nameTeam = Object.assign(nameTeam, { WinTeam : index.Team });
                 }
             }
