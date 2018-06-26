@@ -506,6 +506,10 @@ $(function () {
 
         });
 
+        $("input[type='radio']").on("keydown keypress", function(event){
+            event.preventDefault();
+        })
+
     };
 
     /* Login Form
@@ -1213,7 +1217,6 @@ $(function () {
                 .removeClass("w3-show");
         }
     }    
-
     
     /* Initialize
     * ------------------------------------------------------ */
@@ -1225,11 +1228,6 @@ $(function () {
    UpdStateForm();
    FindForm();
    Load();
-   
-   
-   $("input[type='radio']").on("keydown keypress", function(event){
-       event.preventDefault();
-   })
-
+    
 
 }); /* End Fn */
