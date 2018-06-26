@@ -453,6 +453,9 @@ h2{font-size:1.25em;letter-spacing:4px;}
         color: white;
     }
 
+    .w3-show .table-row .country > #flags {
+        width: 8% !important;
+    }
 
 /* GLOBAL
 ----------------------*/
