@@ -291,7 +291,7 @@ $(function () {
                 }
                 text += `<div class="table-row" ${(bjson[i].Points > 0) ? 'id="Points"' : (bjson[i].V_Votation_Team
                     != bjson[i].Winner && (bjson[i].Winner != bjson[i].V_Votation_Team && (bjson[i].V_Votation_Team != null && bjson[i].Winner != null) && (bjson[i].V_Votation_Team != null && bjson[i + 1].V_Votation_Team != null))) ? 'id="Miss"' : ''}>
-                                <div class="serial">${(ri < 9) ? '0' + (ri + 1) : ri + 1}</div>
+                                <div class="serial">${((parseInt(bjson[i].Id)) < 10) ? '0' + (bjson[i].Id) : bjson[i].Id}</div>
                                 <div class="country"><img src="flags/${bjson[i].Team}.png" id="flags" oncontextmenu="return false" onkeydown="return false" draggable="false">${bjson[i].Team}</div>
                                 <div class="country"><img src="flags/${bjson[i + 1].Team}.png" id="flags" oncontextmenu="return false" onkeydown="return false" draggable="false">${bjson[i + 1].Team}</div>
                                 <div class="visit">${bjson[i].Stadium}</div>
